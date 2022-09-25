@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet/less" type="text/css" href="style.less" />
+</head>
+<body>
+    <div class="div-pokedex">
+            <form class="div-form">
+                <img src="./img/logo.png" alt="">
+                <label for="input-bar">Select your Pokemon to fight with:</label>
+                <input type="text" id="input-bar">
+                <button class="search-button">Search</button>
+            </form>
+        <div class="div-card fire">
+            <h3 id="name-pokemon">Charizard</h3>
+            <h3 id="health-pokemon">120HP</h3>
+            <div id="div-pic">
+                <img id="pic-pokemon" src="./img/charizard-test.png" alt="">
+            </div>
+            <ul id="list-types">
+                Tipos:
+                <li class="item-type">Fire</li>
+            </ul>
+            <div class= "div-weight">
+                <h4>Peso</h4>
+                <p>120kg</p>
+            </div>
+            <div class="div-height">
+                <h4>Altura</h4>
+                <p>20m</p>
+            </div>
+            <div class="div-relation">
+                <h4>Relacion</h4>
+                <p>1:1</p>
+            </div>            
+        </div>
+    </div>
+    <script src="request.js"></script>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/less" ></script>
+</body>
+</html>

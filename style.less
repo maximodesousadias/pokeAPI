@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Montserrat:wght@400;700&family=Roboto&display=swap');
+:root{
+  --poke-yellow: #ffcb05;
+  --poke-blue: #2a75bb;
+  --text: "Roboto";
+  --button: "Kanit";
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--text);
+}
+
+body{
+  background-color: var(--poke-blue);
+}
+
+.div-pokedex{
+    // height: 100vh;
+    // width: 100vw;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // background-color: var(--poke-blue);
+    gap: 25px;
+    border: 1px var(--poke-yellow);
+}
+
+.div-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    // font-family: var(--text);
+
+    & label{
+      font-family: var(--text);
+      color: var(--poke-yellow);
+      text-transform: capitalize;
+      font-size: 25px;
+    }
+
+    & input{
+      width: 350px;
+      border-radius: 50px;
+      height: 50px;
+      padding: 0px 10px;
+      text-transform: none;
+      text-decoration: none;
+      text-align: center;
+      outline: none;
+      font-family: var(--text);
+      font-size: 20px;
+    }
+
+    & .search-button{
+      height: 35px;
+      width: 110px;
+      border-radius: 15px;
+      text-transform: uppercase;
+      font-size: 15px;
+      font-family: var(--button);
+      color: #ffffff;
+      background-color: var(--poke-yellow);
+      border: #44403C 1px solid;
+    }
+}
+
+// label{
+//   color: red;
+// }
+
+// CARD
+
+#div-pic{
+  grid-area: pic;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pic-pokemon{
+  animation: float 6s ease-in-out;
+  animation-duration: 3s;
+  width: 200px;
+}
+
+#health-pokemon{
+  grid-area: health;
+  // color: red;
+}
+
+#name-pokemon{
+  grid-area: name;
+}
+
+#list-types{
+  grid-area: types;
+}
+
+.item-type{
+  list-style: none;
+}
+
+.div-weight{
+  grid-area: weight;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-height{
+  grid-area: height;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-relation{
+  grid-area: relation;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-card{
+    height: 500px;
+    width: 350px;
+    border: 5px solid;
+    border-radius: 5%;
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 30px 200px 100px 100px;
+    grid-template-areas:
+      "name name name health"
+      "pic pic pic pic"
+      "types types types types"
+      "weight height relation relation";
+    // grid-template-areas:
+    //   "name name name health
+    //   pic pic pic pic
+    //   types types types types
+    //   height weight relation relation";
+    // background-color: var(--poke-blue);
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+//
+
+
+/*TYPES*/
+.normal {
+    background: #8a8a59;
+    background-image: -webkit-linear-gradient(#a8a878, #8a8a59);
+    background-image: linear-gradient(#a8a878, #8a8a59);
+    border-color: #79794e
+  }
+
+  .fire {
+    background: #f08030;
+    background-image: -webkit-linear-gradient(#f08030, #dd6610);
+    background-image: linear-gradient(#f08030, #dd6610);
+    border-color: #b4530d
+  }
+
+  .water {
+    background: #6890f0;
+    background-image: -webkit-linear-gradient(#6890f0, #386ceb);
+    background-image: linear-gradient(#6890f0, #386ceb);
+    border-color: #1753e3
+  }
+
+  .electric {
+    background: #f8d030;
+    background-image: -webkit-linear-gradient(#f8d030, #f0c108);
+    background-image: linear-gradient(#f8d030, #f0c108);
+    border-color: #c19b07
+  }
+
+  .grass {
+    background: #78c850;
+    background-image: -webkit-linear-gradient(#78c850, #5ca935);
+    background-image: linear-gradient(#78c850, #5ca935);
+    border-color: #4a892b
+  }
+
+  .ice {
+    background: #98d8d8;
+    background-image: -webkit-linear-gradient(#98d8d8, #69c6c6);
+    background-image: linear-gradient(#98d8d8, #69c6c6);
+    border-color: #45b6b6
+  }
+
+  .fighting {
+    background: #c03028;
+    background-image: -webkit-linear-gradient(#c03028, #9d2721);
+    background-image: linear-gradient(#c03028, #9d2721);
+    border-color: #82211b
+  }
+
+  .poison {
+    background: #a040a0;
+    background-image: -webkit-linear-gradient(#a040a0, #803380);
+    background-image: linear-gradient(#a040a0, #803380);
+    border-color: #662966
+  }
+
+  .ground {
+    background: #e0c068;
+    background-image: -webkit-linear-gradient(#e0c068, #d4a82f);
+    background-image: linear-gradient(#e0c068, #d4a82f);
+    border-color: #aa8623
+  }
+
+  .flying {
+    background: #a890f0;
+    background-image: -webkit-linear-gradient(#a890f0, #9180c4);
+    background-image: linear-gradient(#a890f0, #9180c4);
+    border-color: #7762b6
+  }
+
+  .psychic {
+    background: #f85888;
+    background-image: -webkit-linear-gradient(#f85888, #f61c5d);
+    background-image: linear-gradient(#f85888, #f61c5d);
+    border-color: #d60945
+  }
+
+  .bug {
+    background: #a8b820;
+    background-image: -webkit-linear-gradient(#a8b820, #8d9a1b);
+    background-image: linear-gradient(#a8b820, #8d9a1b);
+    border-color: #616b13
+  }
+
+  .rock {
+    background: #b8a038;
+    background-image: -webkit-linear-gradient(#b8a038, #93802d);
+    background-image: linear-gradient(#b8a038, #93802d);
+    border-color: #746523
+  }
+
+  .ghost {
+    background: #705898;
+    background-image: -webkit-linear-gradient(#705898, #554374);
+    background-image: linear-gradient(#705898, #554374);
+    border-color: #413359
+  }
+
+  .dragon {
+    background: #7038f8;
+    background-image: -webkit-linear-gradient(#7038f8, #4c08ef);
+    background-image: linear-gradient(#7038f8, #4c08ef);
+    border-color: #3d07c0
+  }
+
+  .steel {
+    background: #b8b8d0;
+    background-image: -webkit-linear-gradient(#b8b8d0, #9797ba);
+    background-image: linear-gradient(#b8b8d0, #9797ba);
+    border-color: #7a7aa7
+  }
+
+  .dark {
+    background: #705848;
+    background-image: -webkit-linear-gradient(#705848, #513f34);
+    background-image: linear-gradient(#705848, #513f34);
+    border-color: #362a23
+  }
+
+  .fairy {
+    background: #e898e8;
+    background-image: -webkit-linear-gradient(#e898e8, #de6ede);
+    background-image: linear-gradient(#e898e8, #de6ede);
+    border-color: #d547d5
+  }
+
+  .curse {
+    background: #68a090;
+    background-image: -webkit-linear-gradient(#68a090, #4e7c6f);
+    background-image: linear-gradient(#68a090, #4e7c6f);
+    border-color: #41685d
+  }
+
+
+
+
+
+
+
+
+
+
