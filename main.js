@@ -1,6 +1,7 @@
 const form = document.querySelector(".div-form");
 const input = document.querySelector("#input-bar");
 const cardContainer = document.querySelector("#card");
+const errorContainer = document.querySelector("#error");
 
 let pokemons = JSON.parse(localStorage.getItem('pokemons')) || [];
 
@@ -58,7 +59,7 @@ const renderCard = pokemon => {
 const searchPokemon = async e => {
     e.preventDefault();
 
-    const searchedPokemon = input.value.trim();
+    const searchedPokemon = input.value.trim().toLowerCase();
     // consol.log(searchedPokemon);
 
     if (searchedPokemon === ''){
@@ -67,20 +68,36 @@ const searchPokemon = async e => {
     };
 
     const fetchedPokemon = await requestPokemon(searchedPokemon);
-    const pokemonName = await fetchedPokemon.name;
-    const pokemonType = await fetchedPokemon.types[0].type.name;
+    
+    if (parseInt(searchedPokemon) > await lastId()) {
+        // cardContainer.classList.remove("grid");
+        cardContainer.classList.add("hide");
+        // errorContainer.classList.add('error');
+        errorContainer.classList.remove('hide');
+        errorContainer.innerHTML = `
+        <h3>Ingresar un ID menor a ${await lastId()}</h3>
+        <img id="img-error" src="./img/whois2.png" alt="">
+        `;
+    } else {
 
-    pokemons = [{ name: pokemonName, type: pokemonType } , ...pokemons];
+        // errorContainer.classList.remove('error');
+        errorContainer.classList.add('hide');
+        const pokemonName = await fetchedPokemon.name;
+        const pokemonType = await fetchedPokemon.types[0].type.name;
 
-    saveLocalStorage(pokemons);
+        pokemons = [{ name: pokemonName, type: pokemonType } , ...pokemons];
 
-    const typesList = cardContainer.classList;
-    while (typesList.length > 0) {
-        typesList.remove(typesList.item(0));
+        saveLocalStorage(pokemons);
+
+        const typesList = cardContainer.classList;
+        while (typesList.length > 0) {
+            typesList.remove(typesList.item(0));
+        }
+
+        cardContainer.classList.add(fetchedPokemon.types[0].type.name);
+        cardContainer.classList.add("grid");
+        cardContainer.innerHTML = renderCard(fetchedPokemon);
     }
-
-    cardContainer.classList.add(fetchedPokemon.types[0].type.name);
-    cardContainer.innerHTML = renderCard(fetchedPokemon);
 
 };
 

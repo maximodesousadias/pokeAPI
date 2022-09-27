@@ -70,9 +70,36 @@ body{
     }
 }
 
-// label{
-//   color: red;
+#img-main{
+  height: 100px;
+  width: auto;
+}
+
+// ERROR
+
+.flexbox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+// .error{
+//   display: flex;
+
+//   gap: 10px;
 // }
+
+#img-error{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  // object-position: -100px 0px;
+  border-radius: 100%;
+  animation: rotate 6s ease-in-out;
+  animation-duration: 3s;
+}
 
 // CARD
 
@@ -135,25 +162,30 @@ body{
 
 
 #card{
-    height: 500px;
-    width: 350px;
-    border: 5px solid;
-    border-radius: 5%;
-    display: grid;
-    padding: 10px;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 30px 200px 100px 100px;
-    grid-template-areas:
-      "name name name health"
-      "pic pic pic pic"
-      "types types types types"
-      "weight height relation relation";
+  height: 500px;
+  width: 350px;
+  //border: 5px solid;
+  border-radius: 5%;
+    
     // grid-template-areas:
     //   "name name name health
     //   pic pic pic pic
     //   types types types types
     //   height weight relation relation";
     // background-color: var(--poke-blue);
+}
+
+.grid{
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 30px 200px 100px 100px;
+  border: 5px solid var(--poke-yellow);
+  grid-template-areas:
+    "name name name health"
+    "pic pic pic pic"
+    "types types types types"
+    "weight height relation relation";
 }
 
 @keyframes float {
@@ -168,8 +200,27 @@ body{
   }
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotateZ(90deg) rotateX(180deg);
+  }
+  50% {
+    transform: rotateZ(-90deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
 //
 
+.borders-color{
+  border: 5px solid var(--poke-yellow);
+}
+
+.hide{
+  display: none;
+}
 
 /*TYPES*/
 .normal {
